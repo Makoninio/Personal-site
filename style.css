@@ -11,8 +11,14 @@
       scroll-behavior: smooth;
     }
 
+    body, html {
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
     body {
       margin: 0;
+      padding: 0;
       font-family: 'Inter', sans-serif;
       background-color: var(--white);
       color: var(--black);
@@ -45,7 +51,55 @@
       filter: invert(1);
     }
 
-    /* Hero Section */
+    /* --- HERO SECTION (UPDATED & CONSISTENT) --- */
+header.hero {
+  height: 100vh;
+  background: linear-gradient(135deg, #0a0a0a 0%, #000000 100%); /* Subtle gradient for depth */
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: left; /* Changed from 'center' to match your example image */
+  position: relative;
+  overflow: hidden;
+  padding-top: 60px;
+}
+
+.hero-content {
+  z-index: 1;
+  max-width: 900px; /* Allow for longer, left-aligned text */
+  padding: 0 2rem; /* More breathing room on the sides */
+  margin-left: 2rem; /* Push the content block in from the left */
+}
+
+.hero-content h1 {
+  font-size: clamp(2.5rem, 8vw, 4.5rem);
+  font-weight: 900; /* Changed from 800 to 900 for maximum weight */
+  margin-bottom: 0.75rem;
+  line-height: 1;
+  letter-spacing: -0.03em; /* This pulls the letters closer together */
+  font-family: 'Inter', sans-serif; /* Explicitly stating it, though it's inherited */
+}
+
+.text-highlight {
+  color: var(--accent); /* Now works! */
+}
+
+.hero-tagline {
+  font-size: clamp(1.1rem, 3vw, 1.5rem); /* Responsive font size */
+  font-weight: 400;
+  color: var(--light-gray);
+  margin-bottom: 1.5rem;
+  line-height: 1.5;
+  max-width: 700px;
+}
+
+.hero-current {
+  font-size: 1.1rem;
+  color: var(--gray);
+  font-style: italic;
+}
+    
     header.hero {
       height: 100vh;
       background: var(--hero-bg);
@@ -200,6 +254,16 @@
       text-decoration: underline;
     }
 
+    .social-link {
+  color: var(--dark-gray);
+  transition: color 0.3s, transform 0.2s;
+}
+
+.social-link:hover {
+  color: var(--black);
+  transform: scale(1.2);
+}
+
     /* Responsive tweaks */
     @media (max-width: 576px) {
       .hero h1 {
@@ -221,3 +285,4 @@
         font-size: 0.9rem;
       }
     }
+    
