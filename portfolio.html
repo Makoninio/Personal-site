@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tanaka Makoni | Portfolio</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css" >
+</head>
+<body>
+  
+  <header class="site-header">
+    <!-- Sticky Floating Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark floating-nav">
+      <div class="container-fluid justify-content-center">
+        
+        <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item"><a class="nav-link" href="index.html">Main Site</a></li>
+            <li class="nav-item"><a class="nav-link" href="#about">About Me</a></li>
+            <li class="nav-item"><a class="nav-link" href="#design-sprints">Design Sprints</a></li>
+            <li class="nav-item"><a class="nav-link" href="manifesto.html">Manifesto</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero" id="hero">
+    <canvas class="hero-stars" aria-hidden="true"></canvas>
+    <div class="hero-content">
+      <h1>CSC 363 - Human Computer Interaction</h1>
+      <h2>HCI Design Portfolio</h2>
+      <a href="#design-sprints" class="btn btn-accent">View Design Sprints &darr;</a>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="container">
+      <h2 class="section-title">About Me</h2>
+      <div class="row align-items-center justify-content-center text-center g-4">
+        <div class="col-12 col-md-8">
+          <p>My name is Tanaka Makoni and I am a sophomore computer science student studying how humans and technology meet, with a growing interest in designing and developing tools that genuinely serve the people who use them. 
+            Through my human computer interaction coursework and personal projects, I’ve become a creative, detail-oriented builder who cares deeply about clarity, aesthetics, and thoughtful design. 
+            I’m eager to keep learning about Design Thinking and to apply those principles in real-world contexts, especially through user interviews, accessibility-centered decision making, and design that feels intuitive and convenient. 
+            My goal is to shape the technology I build from a human lens and create systems that feel supportive, empowering, and easy to use.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="design-sprints">
+    <div class="container">
+      <h2 class="section-title">Design Sprints</h2>
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-3 align-items-stretch">
+
+        <div class="col">
+          <div class="card p-3 project-card">
+            <h5>Design Sprint 1: Redesigning Knotty and Board</h5>
+            <div class="sprint-thumb mb-3">
+              <img src="Media/Design Sprints/DS1.png" alt="Design Sprint 1 cover showing redesign concepts" />
+            </div>
+            <p>Redesign focused on improving navigation, readability, and visual hierarchy for Knotty and Board.</p>
+            <a href="https://medium.com/@jamcdonald2/design-sprint-1-redesigning-knotty-and-board-67884c123578" target="_blank" rel="noopener" class="btn btn-accent">Read More</a>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="card p-3 project-card">
+            <h5>Design Sprint 2: Design For Understanding</h5>
+            <div class="sprint-thumb mb-3">
+              <img src="Media/Design Sprints/DS2.png" alt="Design Sprint 2 cover showing case study visuals" />
+            </div>
+            <p>Full case study covering research insights, iterations, and the final design decisions.</p>
+            <a href="https://medium.com/@makwhite/1f09d4c8252b" target="_blank" rel="noopener" class="btn btn-accent">Read More</a>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="card p-3 project-card">
+            <h5>Design Sprint 3: Haunted Nature VR Experience</h5>
+            <div class="sprint-thumb mb-3">
+              <img src="Media/Design Sprints/DS3.png" alt="Design Sprint 3 cover for Haunted Nature VR experience" />
+            </div>
+            <p>Designing for an eerie, immersive nature VR experience with narrative-driven interaction.</p>
+            <a href="https://medium.com/@jowhitehouse_64694/design-for-another-world-haunted-nature-vr-experience-c8fe475129f1" target="_blank" rel="noopener" class="btn btn-accent">Read More</a>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="card p-3 project-card">
+            <h5>Design Sprint 4: Knotty and Board Physical Prototype</h5>
+            <div class="sprint-thumb mb-3">
+              <img src="Media/Design Sprints/DS4.png" alt="Design Sprint 4 cover showing re-design and extension" />
+            </div>
+            <p>Reimagining and extending an existing experience with new features and refined flows.</p>
+            <a href="https://medium.com/@ellora03/design-sprint-4-re-design-and-extend-60aa4a1fcf80" target="_blank" rel="noopener" class="btn btn-accent">Read More</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>
+      &copy; 2025 Tanaka Makoni. All rights reserved.
+    </p>
+  </footer>
+
+  <script>
+    // Starfield background for the hero section with a soft spotlight that tugs nearby stars
+    (function () {
+      const hero = document.querySelector('.hero');
+      const canvas = document.querySelector('.hero-stars');
+      if (!hero || !canvas) return;
+
+      const ctx = canvas.getContext('2d');
+      const palette = ['#ffffff', '#b6e0ff', '#ffd1ff', '#b9ffd6', '#ff7a45'];
+      let stars = [];
+      let width = 0;
+      let height = 0;
+      let time = 0;
+      let mouse = { x: 0, y: 0, active: false };
+
+      const resize = () => {
+        width = hero.clientWidth;
+        height = hero.clientHeight;
+        canvas.width = width;
+        canvas.height = height;
+        mouse = { x: width / 2, y: height / 2, active: false };
+        initStars();
+      };
+
+      const initStars = () => {
+        const density = 0.00012; // stars per pixel
+        const count = Math.max(80, Math.floor(width * height * density));
+        stars = Array.from({ length: count }, () => ({
+          x: Math.random() * width,
+          y: Math.random() * height,
+          r: Math.random() * 1.4 + 0.3,
+          s: Math.random() * 0.12 + 0.02, // drift speed
+          tw: Math.random() * 0.8 + 0.6, // twinkle speed multiplier
+          color: palette[Math.floor(Math.random() * palette.length)],
+        }));
+      };
+
+      const draw = () => {
+        ctx.clearRect(0, 0, width, height);
+        const spotlightRadius = Math.min(width, height) * 0.14;
+        const gravity = 0.004;
+
+        for (const star of stars) {
+          // base drift
+          star.y += star.s;
+          if (star.y > height) {
+            star.y = -5;
+            star.x = Math.random() * width;
+          }
+
+          // gentle pull toward the cursor
+          if (mouse.active) {
+            const dx = mouse.x - star.x;
+            const dy = mouse.y - star.y;
+            const dist = Math.sqrt(dx * dx + dy * dy) || 1;
+            if (dist < spotlightRadius) {
+              const pull = (1 - dist / spotlightRadius) * gravity;
+              star.x += dx * pull;
+              star.y += dy * pull;
+            }
+          }
+
+          const twinkle = 0.65 + 0.35 * Math.sin(time * star.tw + star.x * 0.01);
+          ctx.save();
+          ctx.globalAlpha = twinkle;
+          ctx.fillStyle = star.color;
+          ctx.shadowBlur = 6 * star.r;
+          ctx.shadowColor = star.color;
+          ctx.beginPath();
+          ctx.arc(star.x, star.y, star.r, 0, Math.PI * 2);
+          ctx.fill();
+          ctx.restore();
+        }
+
+        // spotlight glow following the cursor
+        if (mouse.active) {
+          const grd = ctx.createRadialGradient(mouse.x, mouse.y, 0, mouse.x, mouse.y, spotlightRadius);
+          grd.addColorStop(0, 'rgba(255,122,69,0.28)');
+          grd.addColorStop(0.35, 'rgba(255,193,160,0.15)');
+          grd.addColorStop(1, 'rgba(255,255,255,0)');
+          ctx.save();
+          ctx.globalCompositeOperation = 'screen';
+          ctx.fillStyle = grd;
+          ctx.fillRect(0, 0, width, height);
+          ctx.restore();
+        }
+
+        time += 0.02;
+        requestAnimationFrame(draw);
+      };
+
+      const handlePointerMove = (event) => {
+        const rect = hero.getBoundingClientRect();
+        mouse = {
+          x: event.clientX - rect.left,
+          y: event.clientY - rect.top,
+          active: true,
+        };
+      };
+
+      const handlePointerLeave = () => {
+        mouse.active = false;
+      };
+
+      resize();
+      draw();
+      window.addEventListener('resize', resize);
+      hero.addEventListener('pointermove', handlePointerMove);
+      hero.addEventListener('pointerleave', handlePointerLeave);
+      hero.addEventListener('pointercancel', handlePointerLeave);
+    })();
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
