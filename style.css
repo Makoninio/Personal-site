@@ -9,6 +9,8 @@
       --nav-bg: rgba(10, 10, 14, 0.88);
       --nav-border: rgba(255, 122, 69, 0.55);
       --nav-glow: rgba(255, 122, 69, 0.35);
+      --font-sans: "Manrope", "Inter", sans-serif;
+      --font-serif: "Playfair Display", Georgia, serif;
     }
 
     * {
@@ -23,7 +25,7 @@
     body {
       margin: 0;
       padding: 0;
-      font-family: 'Inter', sans-serif;
+      font-family: var(--font-sans);
       background-color: var(--white);
       color: var(--black);
     }
@@ -32,76 +34,123 @@
       position: sticky;
       top: 0;
       z-index: 10000;
-      display: flex;
-      justify-content: center;
-      padding: 15px 0 0 0;
-      background: linear-gradient(135deg, #0a0a0a 0%, #000000 100%);
-      overflow: hidden;
+      background: rgba(7, 8, 10, 0.94);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+      backdrop-filter: blur(10px);
     }
 
-    /* Sticky Floating Navbar */
     .floating-nav {
-        position: relative;
-        background: var(--nav-bg);
-        border-radius: 999px;
-        padding: 10px 26px;
-        border: 1px solid var(--nav-border);
-        box-shadow: 0 10px 28px rgba(0,0,0,0.65), 0 0 26px var(--nav-glow);
-        max-width: 980px;
-        margin: 0 auto 20px auto; /* centers horizontally */
-        width: fit-content;
-        backdrop-filter: blur(10px);
-        }
+      position: relative;
+      background: transparent;
+      padding: 0;
+      margin: 0;
+      width: 100%;
+      box-shadow: none;
+      border: none;
+    }
 
-    .floating-nav::before {
-      content: "";
-      position: absolute;
-      inset: 2px;
-      border-radius: inherit;
-      border: 1px solid rgba(255, 255, 255, 0.06);
-      pointer-events: none;
+    .nav-shell {
+      width: 100%;
+      max-width: none;
+      margin: 0;
+      padding: 14px 18px 14px 12px;
+      gap: 24px;
+    }
+
+    .site-name {
+      color: var(--white) !important;
+      font-family: var(--font-serif);
+      font-size: clamp(1.1rem, 1.6vw, 1.9rem);
+      letter-spacing: 0.2px;
+      white-space: nowrap;
+      margin-right: 0;
+      padding: 0;
+    }
+
+    .nav-links-list {
+      gap: 28px;
+      align-items: center;
     }
 
     .floating-nav .nav-link {
-      color: var(--white) !important;
+      color: rgba(255, 255, 255, 0.72) !important;
       font-weight: 600;
-      margin: 0 6px;
-      padding: 8px 14px;
-      border-radius: 999px;
-      letter-spacing: 0.4px;
-      text-transform: uppercase;
+      font-size: 1.04rem;
+      padding: 8px 0;
       position: relative;
-      transition: color 0.3s, background 0.3s, transform 0.2s;
+      transition: color 0.22s ease;
+      letter-spacing: 0.2px;
     }
 
     .floating-nav .nav-link::after {
       content: "";
       position: absolute;
-      left: 16%;
-      right: 16%;
+      left: 0;
+      right: 0;
       bottom: 2px;
-      height: 2px;
-      border-radius: 999px;
-      background: linear-gradient(90deg, transparent, var(--accent), transparent);
-      opacity: 0;
-      transform: translateY(4px);
-      transition: opacity 0.3s, transform 0.3s;
+      height: 1px;
+      background: var(--accent);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.24s ease;
     }
 
-    .floating-nav .nav-link:hover {
-      color: var(--light-gray) !important;
-      background: rgba(255, 122, 69, 0.12);
-      transform: translateY(-1px);
+    .floating-nav .nav-link:hover,
+    .floating-nav .nav-link:focus-visible {
+      color: var(--white) !important;
     }
 
     .floating-nav .nav-link:hover::after,
     .floating-nav .nav-link:focus-visible::after {
-      opacity: 1;
-      transform: translateY(0);
+      transform: scaleX(1);
+    }
+
+    .floating-nav .navbar-toggler {
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      padding: 6px 9px;
+    }
+
+    .floating-nav .navbar-toggler:focus {
+      box-shadow: 0 0 0 0.2rem rgba(255, 122, 69, 0.35);
     }
 
     .floating-nav .navbar-toggler-icon {
       filter: invert(1);
+    }
+
+    @media (min-width: 992px) {
+      .nav-shell {
+        position: relative;
+      }
+
+      .nav-links-wrap {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+
+      .nav-links-list {
+        justify-content: center;
+      }
+    }
+
+    @media (max-width: 991.98px) {
+      .nav-shell {
+        padding: 12px 16px;
+      }
+
+      .nav-links-wrap {
+        margin-top: 10px;
+      }
+
+      .nav-links-list {
+        gap: 10px;
+        align-items: flex-start;
+      }
+
+      .floating-nav .nav-link {
+        padding: 6px 0;
+      }
     }
 
 /* --- HERO SECTION (UPDATED & CONSISTENT) --- */
@@ -224,7 +273,7 @@
   margin-bottom: 0.5rem;
   line-height: 1.05;
   letter-spacing: -0.03em;
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-serif);
 }
 
 .text-highlight {
@@ -372,6 +421,7 @@ section.projects-page {
       margin-bottom: 50px;
       color: var(--black);
       letter-spacing: 1.1px;
+      font-family: var(--font-serif);
     }
 
     /* Cards for projects and education */
@@ -390,6 +440,7 @@ section.projects-page {
 
     /* Ensure project cards are uniform height */
 #projects .project-card,
+section.projects-page .project-card,
 #design-sprints .project-card {
   height: 100%;
   display: flex;
@@ -397,8 +448,41 @@ section.projects-page {
 }
 
 #projects .project-card p,
+section.projects-page .project-card p,
 #design-sprints .project-card p {
   flex-grow: 1;
+}
+
+.project-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: auto;
+}
+
+.project-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: auto;
+  color: #1a1a1a;
+  font-weight: 600;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  padding-bottom: 2px;
+  transition: color 0.25s ease, border-color 0.25s ease, transform 0.2s ease;
+}
+
+.project-link::after {
+  content: "↗";
+  font-size: 0.9rem;
+  line-height: 1;
+}
+
+.project-link:hover {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+  transform: translateY(-1px);
 }
 
 /* Compact cards for design sprints grid */
