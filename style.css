@@ -241,22 +241,6 @@
   pointer-events: none;
 }
 
-.hero-content::after {
-  content: "";
-  position: absolute;
-  top: 10px;
-  right: 14px;
-  padding: 6px 12px;
-  border-radius: 999px;
-  border: 1px solid rgba(255, 122, 69, 0.65);
-  background: rgba(255, 122, 69, 0.12);
-  color: var(--white);
-  font-size: 0.72rem;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  content: "Available for work";
-  box-shadow: 0 6px 16px rgba(0,0,0,0.35);
-}
 
 /* Contact buttons in hero */
 .contact-buttons {
@@ -368,11 +352,6 @@
 @media (max-width: 768px) {
   .hero-content {
     padding: 26px 18px;
-  }
-  .hero-content::after {
-    top: 8px;
-    right: 8px;
-    font-size: 0.65rem;
   }
 }
 
