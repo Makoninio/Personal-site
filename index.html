@@ -37,25 +37,36 @@
   <!-- Hero Section -->
   <section class="hero" id="hero">
     <div class="hero-content">
-      <img src="Media/Tanaka_headshot.jpg" alt="Tanaka Makoni Photo" />
-      <h1 class="typewriter">hi, i'm <span class="text-highlight">Tanaka!</span></h1>
-      <p class="hero-tagline">Building tools that make tech more human and ideas more real.</p>
-      
-      <div class="contact-buttons" id="hero-contact">
-        <a href="mailto:makoninio@gmail.com" class="contact-btn" aria-label="Email">
-          <i class="fas fa-envelope"></i><span>Email</span>
-        </a>
-        <a href="https://www.linkedin.com/in/tanaka-makoni-b415a8268/" target="_blank" rel="noopener" class="contact-btn" aria-label="LinkedIn">
-          <i class="fab fa-linkedin"></i><span>LinkedIn</span>
-        </a>
-        <a href="https://github.com/Makoninio" target="_blank" rel="noopener" class="contact-btn" aria-label="GitHub">
-          <i class="fab fa-github"></i><span>GitHub</span>
-        </a>
-        <a href="Tanaka_Makoni_Resume.pdf" target="_blank" rel="noopener" class="contact-btn" aria-label="Resume">
-          <i class="fas fa-file-pdf"></i><span>Resume</span>
-        </a>
+      <div class="hero-copy">
+        
+        <h1 class="typewriter">hi, i'm <span class="text-highlight">Tanaka!</span></h1>
+        <p class="hero-tagline">I code sometimes</p>
+        <div class="hero-meta">
+          <p class="hero-location">Charlotte, NC</p>
+          <p class="hero-school">Davidson College</p>
+          <p class="hero-major">Computer Science</p>
+        </div>
+        
+        
+        <div class="contact-buttons" id="hero-contact">
+          <a href="mailto:makoninio@gmail.com" class="contact-btn" aria-label="Email" title="Email">
+            <i class="fas fa-envelope"></i>
+          </a>
+          <a href="https://www.linkedin.com/in/tanaka-makoni-b415a8268/" target="_blank" rel="noopener" class="contact-btn" aria-label="LinkedIn" title="LinkedIn">
+            <i class="fab fa-linkedin"></i>
+          </a>
+          <a href="https://github.com/Makoninio" target="_blank" rel="noopener" class="contact-btn" aria-label="GitHub" title="GitHub">
+            <i class="fab fa-github"></i>
+          </a>
+          <a href="Tanaka_Makoni_Resume.pdf" target="_blank" rel="noopener" class="contact-btn" aria-label="Resume" title="Resume">
+            <i class="fas fa-file-pdf"></i>
+          </a>
+        </div>
       </div>
 
+      <div class="hero-portrait">
+        <img src="Media/Tanaka_headshot.jpg" alt="Tanaka Makoni Photo" />
+      </div>
     </div>
   </section>
 
@@ -152,33 +163,40 @@
     <h2 class="section-title">Projects</h2>
     <div class="row g-4">
       
-      <!-- Multi Healthcare -->
+      <!-- Premier League City -->
       <div class="col-md-6">
         <div class="card p-3 project-card">
-          <h5>Multi Healthcare</h5>
+          <h5>Premier League City</h5>
           <div class="ratio ratio-16x9 mb-3">
-            <iframe 
-              src="https://www.multihealthcare.xyz/" 
-              title="Multi Healthcare Preview" 
+            <iframe
+              src="https://epl-dynamic-table-web.vercel.app/"
+              title="Premier League City Preview"
+              loading="lazy"
               style="border-radius: 8px; border: 1px solid #ddd;">
             </iframe>
           </div>
-          <p>A secure digital platform streamlining patient data, appointments, and care coordination across multiple healthcare providers.</p>
-          <a href="https://www.multihealthcare.xyz/" target="_blank" rel="noopener" class="project-link">Visit Site</a>
+          <p>A 3D Premier League data experience that turns the season table into a cinematic cityscape of live club towers.</p>
+           <div class="project-links">
+            <a href="https://epl-dynamic-table-web.vercel.app/" target="_blank" rel="noopener" class="project-link">Visit Site</a>
+            <a href="https://github.com/Makoninio/EPL-Dynamic-Table" target="_blank" rel="noopener" class="project-link">View Code</a>
+            </div>
         </div>
       </div>
 
-      <!-- Personal Finance Assistant -->
+      <!-- Crowdsource -->
       <div class="col-md-6">
-        <div class="card p-3 project-card">
-          <h5>Personal Finance Assistant</h5>
-          <div class="ratio ratio-16x9 mb-3 d-flex align-items-center justify-content-center bg-light" style="border-radius: 8px; border: 1px solid #ddd;">
-            <span class="text-muted">CLI + automation toolkit</span>
+          <div class="card p-3 project-card">
+            <h5>Crowdsource</h5>
+            <div class="project-thumb mb-3">
+              <img src="CrowdSource_Poster.jpg" alt="Crowdsource game poster" loading="lazy" />
+            </div>
+            <p>A game built to explore systems, strategy, and emergent behavior.</p>
+            <div class="project-links">
+              <a href="https://tanaka-makoni.itch.io/crowdsource" target="_blank" rel="noopener" class="project-link">Play on itch.io</a>
+              <a href="https://github.com/Makoninio/Final-Game" target="_blank" rel="noopener" class="project-link">View Repo</a>
+            </div>
           </div>
-          <p>A finance assistant for budgeting and transaction automation. Explore the code and workflows in the repository.</p>
-          <a href="https://github.com/Makoninio/Personal-finance-assistant/tree/main/finance-assistant" target="_blank" rel="noopener" class="project-link">View Repo</a>
         </div>
-      </div>
 
       <!-- HCI Design Portfolio -->
       <div class="col-md-6">

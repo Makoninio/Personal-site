@@ -53,14 +53,14 @@
       width: 100%;
       max-width: none;
       margin: 0;
-      padding: 14px 18px 14px 12px;
+      padding: 14px 18px 14px 20px;
       gap: 24px;
     }
 
     .site-name {
       color: var(--white) !important;
       font-family: var(--font-serif);
-      font-size: clamp(1.1rem, 1.6vw, 1.9rem);
+      font-size: clamp(1rem, 1.35vw, 1.55rem);
       letter-spacing: 0.2px;
       white-space: nowrap;
       margin-right: 0;
@@ -136,7 +136,7 @@
 
     @media (max-width: 991.98px) {
       .nav-shell {
-        padding: 12px 16px;
+        padding: 12px 16px 12px 18px;
       }
 
       .nav-links-wrap {
@@ -214,14 +214,14 @@
 
 .hero-content {
   z-index: 2;
-  max-width: 980px;
-  width: min(980px, 100%);
-  padding: 34px 38px;
+  max-width: 1120px;
+  width: min(1120px, 100%);
+  padding: 42px 46px;
   margin: 0 auto;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  gap: 0.75rem;
+  justify-content: space-between;
+  gap: 40px;
   animation: hero-fade 0.8s ease-out both;
   position: relative;
   border-radius: 22px;
@@ -241,22 +241,74 @@
   pointer-events: none;
 }
 
+.hero-copy {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  flex: 1 1 540px;
+  max-width: 580px;
+  text-align: left;
+}
+
+.hero-portrait {
+  flex: 0 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 /* Contact buttons in hero */
 .contact-buttons {
   display: flex;
   flex-wrap: wrap;
-  gap: 14px;
-  justify-content: center;
-  margin-top: 22px;
+  gap: 10px;
+  justify-content: flex-start;
+  margin-top: 0;
+}
+
+.contact-btn {
+  display: inline-grid;
+  place-items: center;
+  align-items: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border-radius: 50%;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.74);
+  border: none;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.1rem;
+  transition:
+    transform 0.2s ease,
+    color 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.contact-btn i {
+  font-size: 1.35rem;
+}
+
+.contact-btn:hover {
+  transform: translateY(-2px);
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--white);
+}
+
+.contact-btn:focus-visible {
+  outline: 2px solid rgba(255, 122, 69, 0.75);
+  outline-offset: 4px;
+  color: var(--white);
 }
 
 .hero-content h1 {
-  font-size: clamp(2.5rem, 8vw, 4.5rem);
+  font-size: clamp(3.2rem, 7.2vw, 5.6rem);
   font-weight: 900;
-  margin-bottom: 0.5rem;
-  line-height: 1.05;
-  letter-spacing: -0.03em;
+  margin: 0 0 1.5rem 0;
+  line-height: 0.94;
+  letter-spacing: -0.06em;
   font-family: var(--font-serif);
 }
 
@@ -264,39 +316,65 @@
   color: var(--accent);
 }
 
-.hero-tagline {
-  font-size: clamp(1.1rem, 3vw, 1.5rem);
-  font-weight: 400;
-  color: var(--light-gray);
-  margin-bottom: 1.5rem;
-  line-height: 1.5;
-  max-width: 760px;
+.hero-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  margin-bottom: 1.8rem;
 }
 
-.hero-current {
-  font-size: 1.1rem;
-  color: var(--gray);
-  font-style: italic;
+.hero-meta p {
+  margin: 0;
+  line-height: 1.1;
+}
+
+.hero-location {
+  margin: 0;
+  font-size: clamp(0.96rem, 1.1vw, 1.08rem);
+  font-weight: 500;
+  color: rgba(249, 249, 249, 0.62);
+}
+
+.hero-school {
+  margin: 0;
+  font-size: clamp(0.92rem, 1.02vw, 1rem);
+  font-weight: 500;
+  color: rgba(249, 249, 249, 0.48);
+}
+
+.hero-major {
+  margin: 0;
+  font-size: clamp(0.88rem, 0.98vw, 0.96rem);
+  font-weight: 500;
+  color: rgba(249, 249, 249, 0.42);
+  line-height: 1.1;
+  font-family: var(--font-sans);
+  letter-spacing: 0.01em;
+}
+
+.hero-tagline {
+  font-size: clamp(1.45rem, 2vw, 1.9rem);
+  font-weight: 500;
+  color: rgba(249, 249, 249, 0.9);
+  margin: 0 0 1.15rem 0;
+  line-height: 1.15;
+  max-width: 760px;
+  text-transform: none;
+  letter-spacing: -0.02em;
 }
 
 .hero img {
-    width: 180px;
-    height: 180px;
+    width: clamp(220px, 28vw, 310px);
+    height: clamp(220px, 28vw, 310px);
     object-fit: cover;
     border-radius: 50%;
-    margin-bottom: 10px;
+    margin-bottom: 0;
     background-color: transparent;
     box-shadow:
       0 0 0 4px rgba(255, 255, 255, 0.08),
-      0 0 18px rgba(255, 122, 69, 0.35);
+      0 0 26px rgba(255, 122, 69, 0.35);
     border: 2px solid rgba(255, 122, 69, 0.7);
     }
-
-.hero h1 {
-  font-size: 3.5rem;
-  font-weight: 700;
-  margin-bottom: 0.2rem;
-}
 
 .hero-stars {
   position: absolute;
@@ -309,7 +387,8 @@
 
 /* Typewriter animation for the hero headline */
 .typewriter {
-  --typewriter-characters: 12;
+  --typewriter-characters: 11;
+  --typewriter-width: 9.6ch;
   --typewriter-speed: 10s;
   font-family: "Special Elite", system-ui;
   position: relative;
@@ -324,8 +403,8 @@
 
 @keyframes typing {
   0% { width: 0; }
-  40% { width: calc(var(--typewriter-characters) * 1ch); }
-  60% { width: calc(var(--typewriter-characters) * 1ch); }
+  40% { width: var(--typewriter-width); }
+  60% { width: var(--typewriter-width); }
   100% { width: 0; }
 }
 
@@ -352,14 +431,18 @@
 @media (max-width: 768px) {
   .hero-content {
     padding: 26px 18px;
+    flex-direction: column-reverse;
+    gap: 24px;
   }
-}
 
-.hero p {
-  font-size: 1.3rem;
-  margin-top: 10px;
-  margin-bottom: 25px;
-  color: var(--light-gray);
+  .hero-copy {
+    align-items: center;
+    text-align: center;
+  }
+
+  .contact-buttons {
+    justify-content: center;
+  }
 }
 
     .btn-accent {
@@ -806,76 +889,6 @@ section.projects-page .project-card p,
       color: var(--white);
       text-decoration: underline;
     }
-
-    .social-link {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 44px;
-      height: 44px;
-      border-radius: 50%;
-      background: rgba(255,122,69,0.14);
-      color: var(--white);
-      border: 1px solid rgba(255,122,69,0.6);
-      box-shadow: 0 10px 18px rgba(255,122,69,0.28);
-      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease, color 0.2s ease;
-      font-size: 1.25rem;
-    }
-
-    .social-link:hover {
-      transform: translateY(-2px) scale(1.05);
-      background: var(--accent);
-      box-shadow: 0 12px 22px rgba(255,122,69,0.35);
-      color: var(--white);
-    }
-
-/* --- Improved Hero Contact Buttons --- */
-.contact-buttons {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 14px;
-  justify-content: center;
-  margin-top: 22px;
-}
-
-.contact-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 10px 16px;
-  border-radius: 24px;
-
-  /* High contrast for dark hero background */
-  background: rgba(255, 122, 69, 0.18);
-  color: #fff;
-  border: 1.4px solid rgba(255,122,69,0.65);
-
-  text-decoration: none;
-  font-weight: 600;
-  letter-spacing: 0.4px;
-  font-size: 0.95rem;
-
-  box-shadow: 0 6px 18px rgba(0,0,0,0.25);
-  
-  transition: 
-    transform 0.2s ease,
-    box-shadow 0.25s ease,
-    background 0.25s ease,
-    border-color 0.25s ease;
-}
-
-.contact-btn i {
-  font-size: 1rem;
-}
-
-/* Hover glow effect */
-.contact-btn:hover {
-  transform: translateY(-3px);
-  background: var(--accent);
-  border-color: rgba(255,122,69,1);
-  box-shadow: 0 10px 26px rgba(255,122,69,0.45);
-  color: #fff;
-}
 
 /* Contact section (home page) */
 .contact-title {
