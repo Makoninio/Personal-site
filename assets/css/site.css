@@ -24,7 +24,7 @@
   --line: rgba(22, 18, 15, 0.12);
   --card: #ffffff;
   --card-ink: #16120f;
-  --accent: #2f45ff;
+  --accent: #ff5233;
   --link: #2f45ff;
   --eyebrow: #c2410c;
   --nav-bg: rgba(245, 240, 232, 0.72);
@@ -241,8 +241,21 @@ p { margin: 0; }
   bottom: 20px;
   color: #fff;
   font-size: 0.85rem;
-  opacity: 0.85;
+  opacity: 0.9;
 }
+
+.icon-links { display: flex; gap: 10px; margin-top: 28px; }
+.icon-links a {
+  width: 50px;
+  height: 50px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  border: 1.5px solid var(--line);
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+.icon-links a:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); transform: translateY(-2px); }
+.icon-links svg { width: 21px; height: 21px; }
 
 /* ---------------- device frames ---------------- */
 .phone {
@@ -475,6 +488,16 @@ p { margin: 0; }
 .chips { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; padding: 0; margin: 0; }
 .chips li { padding: 7px 14px; border-radius: 999px; background: var(--bg-2); font-size: 0.9rem; }
 
+.photo-strip {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-top: clamp(48px, 7vw, 88px);
+}
+.photo-strip figure { margin: 0; }
+.photo-strip img { width: 100%; height: 100%; aspect-ratio: 3 / 4; object-fit: cover; border-radius: var(--radius); }
+.photo-strip figcaption { margin-top: 10px; font-size: 0.88rem; color: var(--muted); }
+
 /* ---------------- contact ---------------- */
 .contact {
   margin: clamp(80px, 12vw, 150px) var(--gutter) 0;
@@ -483,6 +506,8 @@ p { margin: 0; }
   background: var(--ink);
   color: var(--bg);
 }
+.contact { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: clamp(28px, 5vw, 64px); align-items: center; }
+.contact-photo { width: clamp(180px, 22vw, 300px); aspect-ratio: 4 / 5; object-fit: cover; object-position: top; border-radius: var(--radius); transform: rotate(3deg); }
 .contact h2 { font-size: clamp(3.4rem, 9vw, 8.5rem); letter-spacing: -0.06em; line-height: 0.9; }
 .contact p { margin-top: 20px; font-size: 1.15rem; opacity: 0.75; }
 .contact .hero-actions { margin-top: 36px; }
@@ -566,6 +591,8 @@ p { margin: 0; }
   .about-portrait { max-width: 340px; }
   .xp-item { grid-template-columns: 1fr; gap: 6px; }
   .store-aside { text-align: left; }
+  .contact { grid-template-columns: 1fr; }
+  .contact-photo { width: 200px; order: -1; }
 }
 @media (max-width: 560px) {
   body { font-size: 16px; }
@@ -573,6 +600,7 @@ p { margin: 0; }
   .site-nav { justify-content: flex-end; }
   .nav-pill a, .theme-toggle { padding: 8px 10px; font-size: 0.88rem; }
   .facts { grid-template-columns: 1fr; }
+  .photo-strip { gap: 10px; }
   .shelf { grid-auto-columns: 84vw; }
   .card { min-height: 500px; }
   .card-copy { padding: 28px 24px 0; }
